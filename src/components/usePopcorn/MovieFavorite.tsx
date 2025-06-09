@@ -1,5 +1,5 @@
 const API_KEY = import.meta.env.VITE_MOVIES_API_KEY;
-const BASE_URL = 'http://www.omdbapi.com';
+const BASE_URL = 'https://www.omdbapi.com';
 import { memo, useState } from 'react';
 import ListExpand from './ListExpand';
 import useFetchMovie from '../../hooks/useFetchMovie';

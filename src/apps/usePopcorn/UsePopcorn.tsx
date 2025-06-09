@@ -11,7 +11,7 @@ import NoDataFound from '../../components/global/NoDataFound';
 import { MovieType } from '../../types/MovieTypes';
 
 const API_KEY = import.meta.env.VITE_MOVIES_API_KEY;
-const BASE_URL = 'http://www.omdbapi.com';
+const BASE_URL = 'https://www.omdbapi.com';
 
 const UsePopcorn = () => {
   const [query, setQuery] = useState('');
