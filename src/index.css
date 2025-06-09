@@ -1,0 +1,160 @@
+@import url('https://fonts.googleapis.com/css2?family=Fugaz+One&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Orbitron:wght@400;700&display=swap');
+
+@import 'tailwindcss';
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  :root {
+    --bg-primary: #0d1117;
+    --bg-secondary: #161b22;
+    --sidebar: rgba(22, 27, 34, 0.95);
+    --text-primary: #f0f6fc;
+    --text-secondary: #8b949e;
+
+    --accent-primary: #58a6ff;
+    --accent-secondary: #d2a8ff;
+    --accent-hover: #c5e1ff;
+    --border: rgba(88, 166, 255, 0.2);
+
+    --shadow: 0 0 20px rgba(88, 166, 255, 0.3);
+    --glow: 0 0 15px rgba(210, 168, 255, 0.4);
+    --neon-pulse: 0 0 10px rgba(88, 166, 255, 0.5);
+
+    --button-bg: linear-gradient(45deg, #58a6ff, #d2a8ff);
+    --button-hover: linear-gradient(45deg, #d2a8ff, #c5e1ff);
+  }
+
+  .light {
+    --bg-primary: #f4faff;
+    --bg-secondary: #e6f0fa;
+    --sidebar: rgba(244, 250, 255, 0.95);
+    --text-primary: #1b1f23;
+    --text-secondary: #4f5660;
+
+    --accent-primary: #5b8def;
+    --accent-secondary: #a97cff;
+    --accent-hover: #d0dfff;
+    --border: rgba(91, 141, 239, 0.1);
+
+    --shadow: 0 0 15px rgba(91, 141, 239, 0.2);
+    --glow: 0 0 10px rgba(169, 124, 255, 0.3);
+    --neon-pulse: 0 0 10px rgba(91, 141, 239, 0.5);
+
+    --button-bg: linear-gradient(45deg, #5b8def, #a97cff);
+    --button-hover: linear-gradient(45deg, #a97cff, #d0dfff);
+  }
+}
+
+@utility container {
+  @apply mx-auto max-w-[1920px] px-4 md:px-8 lg:px-12 xl:px-16;
+}
+
+@theme {
+  --font-sans: 'Montserrat', sans-serif;
+  --font-fugaz: 'Fugaz One', sans-serif;
+  --font-tech: 'Orbitron', sans-serif;
+
+  --color-bgPrimary: var(--bg-primary);
+  --color-bgSecondary: var(--bg-secondary);
+  --color-buttonHover: var(--button-hover);
+  --color-accentPrimary: var(--accent-primary);
+  --color-accentSecondary: var(--accent-secondary);
+  --color-accentHover: var(--accent-hover);
+  --color-sidebar: var(--sidebar);
+  --color-textPrimary: var(--text-primary);
+  --color-textSecondary: var(--text-secondary);
+
+  --shadow-shadowPrimary: var(--shadow);
+  --shadow-shadowGlow: var(--glow);
+  --shadow-shadowNeon: var(--neon-pulse);
+}
+
+@layer components {
+  .text-primary {
+    @apply text-textPrimary;
+  }
+  .main-section {
+    @apply flex h-full w-full flex-col items-center gap-4 p-5;
+  }
+
+  .button-gradient {
+    @apply bg-linear-45 from-(--button-primary) to-(--button-secondary);
+  }
+
+  .button-hover {
+    @apply bg-linear-45 from-(--button-secondary) to-(--button-hover);
+  }
+
+  .text-body {
+    @apply text-gray-500 dark:text-gray-300;
+  }
+
+  .h1 {
+    @apply text-textPrimary text-2xl font-bold sm:text-3xl;
+  }
+  .h2 {
+    @apply text-lg font-bold sm:text-xl;
+  }
+  .h3 {
+    @apply text-sm sm:text-lg;
+  }
+  .h4 {
+    @apply text-xs sm:text-sm;
+  }
+  .trans-colors {
+    @apply transition-colors duration-300;
+  }
+}
+
+/* ===== SCROLLBAR (NEON STYLE) ===== */
+::-webkit-scrollbar,
+.overflow-y-auto::-webkit-scrollbar {
+  width: 8px;
+  background: var(--bg-primary);
+}
+.overflow-y-auto {
+  scrollbar-width: thin;
+  scrollbar-gutter: stable;
+}
+
+::-webkit-scrollbar-thumb,
+.overflow-y-auto::-webkit-scrollbar-thumb {
+  background: var(--accent-primary);
+  border-radius: 10px;
+  box-shadow: var(--neon-pulse);
+}
+
+::-webkit-scrollbar-thumb:hover,
+.overflow-y-auto::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-secondary);
+}
+
+/* ===== BUTTONS ===== */
+.btn-neon {
+  background: var(--button-bg);
+  color: white;
+  border: none;
+  padding: 0.6rem 1.5rem;
+  border-radius: 999px;
+  font-family: var(--font-tech);
+  letter-spacing: 1px;
+  box-shadow: var(--shadow), var(--glow);
+  transition: all 0.3s ease;
+}
+
+.btn-neon:hover {
+  background: var(--button-hover);
+  box-shadow: 0 0 25px var(--glow);
+  transform: translateY(-2px);
+}
+
+.main-body {
+  background-image: linear-gradient(
+    160deg,
+    var(--bg-primary),
+    var(--bg-secondary)
+  );
+  position: relative;
+  overflow: hidden;
+  min-height: 100dvh;
+}
