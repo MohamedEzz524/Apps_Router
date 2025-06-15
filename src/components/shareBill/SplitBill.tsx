@@ -35,7 +35,7 @@ const SplitBill = ({ selected, setSelected, setFriends }: SplitBillProps) => {
   return (
     <form
       onSubmit={handleSubmit}
-      className="text-textPrimary bg-sidebar flex h-fit flex-col gap-6 p-4"
+      className="text-textPrimary bg-sidebar flex h-fit flex-col gap-6 rounded-sm p-4 shadow-md"
     >
       <h3>SPLIT A BILL WITH {selected.name}</h3>
       <Input value={bill} setValue={setBill}>

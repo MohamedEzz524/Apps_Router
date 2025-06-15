@@ -38,7 +38,7 @@ const Loading: React.FC<LoadingProps> = ({
 }) => {
   return (
     <div
-      className={`flex flex-col items-center justify-center gap-3 p-5 ${
+      className={`flex grow flex-col items-center justify-center gap-3 p-5 ${
         fullScreen ? 'h-full w-full' : ''
       } ${className}`}
       role="status"

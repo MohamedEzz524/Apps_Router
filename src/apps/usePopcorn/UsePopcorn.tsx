@@ -9,6 +9,7 @@ import Loading from '../../components/global/Loading';
 import Error from '../../components/global/Error';
 import NoDataFound from '../../components/global/NoDataFound';
 import { MovieType } from '../../types/MovieTypes';
+import MovieCard from '../../components/usePopcorn/MovieCard';
 
 const API_KEY = import.meta.env.VITE_MOVIES_API_KEY;
 const BASE_URL = 'https://www.omdbapi.com';
@@ -65,20 +66,39 @@ const UsePopcorn = () => {
       </MoviesHeader>
 
       <main className="flex w-full flex-col gap-2 lg:flex-row">
-        <MovieList
-          setIsSelected={setIsSelected}
-          movies={data}
-          isSelected={isSelected}
-          watchList={watchList}
-          setWatchList={setWatchList}
-        />
+        <MovieList>
+          <div>
+            {data?.length ? (
+              data.map((movie) => (
+                <MovieCard
+                  key={movie.imdbID}
+                  movie={movie}
+                  setIsSelected={setIsSelected}
+                  isSelected={isSelected}
+                  watchList={watchList}
+                  setWatchList={setWatchList}
+                />
+              ))
+            ) : (
+              <NoDataFound />
+            )}
+          </div>
+        </MovieList>
 
-        <MovieFavorite
-          isSelected={isSelected}
-          setIsSelected={setIsSelected}
-          watchList={watchList}
-          setWatchList={setWatchList}
-        />
+        <MovieFavorite isSelected={isSelected} setIsSelected={setIsSelected}>
+          <div>
+            <h3 className="text-textPrimary text-xl font-bold">Watch List</h3>
+            {watchList.map((movie) => (
+              <MovieCard
+                movie={movie}
+                watchList={watchList}
+                setWatchList={setWatchList}
+                isSelected={isSelected}
+                setIsSelected={setIsSelected}
+              />
+            ))}
+          </div>
+        </MovieFavorite>
       </main>
     </section>
   );

@@ -11,6 +11,7 @@ src/
 │   ├── profile/         # Personal profile / portfolio app
 │   ├── ShareBill/       # Bill splitting and tipping app
 │   ├── usePopcorn/      # Movie rating and watchlist app
+│   ├── ReactQuiz/       # Try React Quiz
 │   └── ...              # Add more apps here
 │
 ├── components/          # Shared UI components

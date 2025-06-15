@@ -44,7 +44,7 @@ const NoDataFound: React.FC<NoDataFoundProps> = ({
   return (
     <div
       className={`m-auto ${noDataContainerStyles({ variant, size })} ${
-        fullScreen ? 'h-9/10 w-9/10' : ''
+        fullScreen ? 'h-screen w-full' : ''
       } ${className}`}
       role="status"
       aria-live="polite"

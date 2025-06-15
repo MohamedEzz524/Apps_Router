@@ -1,5 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Fugaz+One&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Orbitron:wght@400;700&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=DotGothic16&family=Fugaz+One&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 @import 'tailwindcss';
 @custom-variant dark (&:where(.dark, .dark *));
 
@@ -53,6 +52,7 @@
   --font-sans: 'Montserrat', sans-serif;
   --font-fugaz: 'Fugaz One', sans-serif;
   --font-tech: 'Orbitron', sans-serif;
+  --font-dot: 'Courier New', monospace;
 
   --color-bgPrimary: var(--bg-primary);
   --color-bgSecondary: var(--bg-secondary);
@@ -74,7 +74,7 @@
     @apply text-textPrimary;
   }
   .main-section {
-    @apply flex h-full w-full flex-col items-center gap-4 p-5;
+    @apply flex h-full w-full grow flex-col items-center gap-5 pt-20 pr-25 pb-5 pl-5;
   }
 
   .button-gradient {
@@ -87,6 +87,13 @@
 
   .text-body {
     @apply text-gray-500 dark:text-gray-300;
+  }
+
+  .gray-hover {
+    @apply hover:bg-gray-200/30 dark:hover:bg-gray-600/40;
+  }
+  .gray-button {
+    @apply cursor-pointer bg-gray-300 px-4 py-2 text-gray-700 opacity-90 hover:opacity-100 dark:bg-gray-600 dark:text-gray-200;
   }
 
   .h1 {
@@ -157,4 +164,6 @@
   position: relative;
   overflow: hidden;
   min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
 }

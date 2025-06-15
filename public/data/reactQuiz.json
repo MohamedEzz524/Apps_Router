@@ -1,0 +1,140 @@
+[
+  {
+    "id": "q1",
+    "question": "What is the correct way to create a React component?",
+    "answer": "function MyComponent() { return <div>Content</div>; }",
+    "options": [
+      "class MyComponent extends React.Component",
+      "function MyComponent() { return <div>Content</div>; }",
+      "const MyComponent = () => <div>Content</div>",
+      "All of the above"
+    ],
+    "points": 10
+  },
+  {
+    "id": "q2",
+    "question": "Which hook is used for side effects in React?",
+    "answer": "useEffect",
+    "points": 20
+  },
+  {
+    "id": "q3",
+    "question": "How do you pass data to a child component?",
+    "answer": "Via props",
+    "options": [
+      "Via props",
+      "Using refs",
+      "Through context only",
+      "Using Redux"
+    ],
+    "points": 10
+  },
+  {
+    "id": "q4",
+    "question": "What does JSX stand for?",
+    "answer": "JavaScript XML",
+    "points": 20
+  },
+  {
+    "id": "q5",
+    "question": "Which method is called before a component is removed from the DOM?",
+    "answer": "componentWillUnmount",
+    "points": 20
+  },
+  {
+    "id": "q6",
+    "question": "What is the purpose of React's virtual DOM?",
+    "answer": "To improve rendering performance",
+    "points": 20
+  },
+  {
+    "id": "q7",
+    "question": "How do you update state in a functional component?",
+    "answer": "Using the useState hook",
+    "points": 20
+  },
+  {
+    "id": "q8",
+    "question": "What is the children prop?",
+    "answer": "Content between component tags",
+    "options": [
+      "Child component state",
+      "Nested components",
+      "Content between component tags",
+      "A React hook"
+    ],
+    "points": 20
+  },
+  {
+    "id": "q9",
+    "question": "Which toolchain is recommended for creating new React apps?",
+    "answer": "create-react-app",
+    "points": 20
+  },
+  {
+    "id": "q10",
+    "question": "What is the purpose of keys in React lists?",
+    "answer": "Identify changed items",
+    "options": [
+      "Identify changed items",
+      "Style components",
+      "Create unique IDs",
+      "All of the above"
+    ],
+    "points": 20
+  },
+  {
+    "id": "q11",
+    "question": "How can you optimize performance in React?",
+    "answer": "Using React.memo and useMemo",
+    "options": [
+      "Using React.memo and useMemo",
+      "Avoiding state updates",
+      "Using class components",
+      "All of the above"
+    ],
+    "points": 10
+  },
+  {
+    "id": "q12",
+    "question": "What is the default port for React development server?",
+    "answer": "3000",
+    "points": 20
+  },
+  {
+    "id": "q13",
+    "question": "Which syntax is correct for conditional rendering?",
+    "answer": "{condition && <Component />}",
+    "options": [
+      "{if condition <Component />}",
+      "{condition && <Component />}",
+      "<Component if={condition} />",
+      "All are correct"
+    ],
+    "points": 10
+  },
+  {
+    "id": "q14",
+    "question": "What does SSR stand for?",
+    "answer": "SSR (Server-Side Rendering)",
+    "options": [
+      "SSR (Server-Side Rendering)",
+      "SSA (Static Site Generation)",
+      "SRS (Server Rendering System)",
+      "SRR (Server React Render)"
+    ],
+    "points": 20
+  },
+  {
+    "id": "q15",
+    "question": "How do you handle forms in React?",
+    "answer": "Using controlled components",
+    "options": [
+      "Using controlled components",
+      "With document.getElementById",
+      "Using jQuery",
+      "All of the above"
+    ],
+    "points": 10
+  }
+]

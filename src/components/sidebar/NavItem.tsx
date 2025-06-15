@@ -12,7 +12,7 @@ interface NavItemProps {
 const NavItem = memo(
   ({ icon, path, title, active, isCollapsed }: NavItemProps) => {
     return (
-      <li>
+      <li title={title}>
         <NavLink
           to={path ?? '/'}
           className={`group relative mx-3 my-1 flex items-center gap-3 rounded-md px-4 py-3 text-sm font-medium tracking-wide transition-all duration-300 ${isCollapsed ? 'justify-center' : ''} ${

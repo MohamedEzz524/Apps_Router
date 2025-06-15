@@ -1,29 +1,23 @@
 import { useLocation } from 'react-router-dom';
 import routes from '../apps/Exportation';
 import ImgTitle from '../components/sidebar/ImgTitle';
-import ToggleMenu from '../components/sidebar/ToggleMenu';
 import ImgTitleResponsive from '../components/sidebar/ImgTitleResponsive';
-import { useState } from 'react';
 import NavItem from '../components/sidebar/NavItem';
 
-const Sidebar = () => {
-  const [isCollapsed, setIsCollapsed] = useState(false);
-  const location = useLocation(); // Get current route location
+interface SidebarProps {
+  isCollapsed: boolean;
+}
 
-  const handleClose = () => {
-    setIsCollapsed((prev) => !prev);
-  };
+const Sidebar = ({ isCollapsed }: SidebarProps) => {
+  const location = useLocation(); // Get current route location
 
   return (
     <aside
-      className={`bg-sidebar border-accentSecondary/20 z-10 h-screen border-r shadow-lg ${isCollapsed ? 'w-20 min-w-20' : 'w-62.5 min-w-62.5'} overflow-y-auto py-4 transition-[width,min-width] duration-300`}
+      className={`bg-sidebar fixed top-15 right-0 z-10 h-full border-l border-gray-200 shadow-lg dark:border-gray-800 ${isCollapsed ? 'w-20 min-w-20' : 'w-62.5 min-w-62.5'} overflow-y-auto py-4 transition-[width,min-width] duration-300`}
     >
       <nav>
+        {!isCollapsed ? <ImgTitle /> : <ImgTitleResponsive />}
         <ul>
-          <ToggleMenu toggle={handleClose} isCollapsed={isCollapsed} />
-
-          {!isCollapsed ? <ImgTitle /> : <ImgTitleResponsive />}
-
           {routes.map(({ path, title, icon }) => {
             const isActive = location.pathname === path;
             return (

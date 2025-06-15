@@ -43,8 +43,8 @@ const Error: React.FC<ErrorProps> = ({
 }) => {
   return (
     <div
-      className={`m-auto ${errorContainerStyles({ variant, size })} ${
-        fullScreen ? 'h-9/10 w-9/10' : ''
+      className={`m-auto grow ${errorContainerStyles({ variant, size })} ${
+        fullScreen ? 'h-full w-full' : ''
       } ${className}`}
       role="alert"
       aria-live="assertive"

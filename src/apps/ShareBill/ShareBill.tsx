@@ -2,6 +2,7 @@ import { useState } from 'react';
 import FriendsList, { Friend } from '../../components/shareBill/FriendsList';
 import SplitBill from '../../components/shareBill/SplitBill';
 import MainTitle from '../../components/global/MainTitle';
+import { FaMoneyBill } from 'react-icons/fa';
 
 const initialFriends: Friend[] = [
   {
@@ -30,9 +31,12 @@ const ShareBill = () => {
 
   return (
     <section className="main-section">
-      <MainTitle title="Sharing Bills" />
+      <MainTitle
+        title="Sharing Bills"
+        icon={<FaMoneyBill className="text-accentPrimary text-4xl" />}
+      />
 
-      <div className="flex min-h-8/10 min-w-8/10 flex-col gap-3 lg:flex-row">
+      <div className="flex w-full grow flex-col justify-center gap-4 lg:flex-row">
         <FriendsList
           setSelected={setSelected}
           selected={selected}
