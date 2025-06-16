@@ -3,21 +3,17 @@ import { ReactNode, useEffect, useState } from 'react';
 interface QuizTimerNextProps {
   children: ReactNode;
   onTimeUp: () => void;
-  isActive: boolean;
   initialMinutes?: number;
 }
 
 const QuizTimerNext = ({
   children,
   onTimeUp,
-  isActive,
   initialMinutes = 10,
 }: QuizTimerNextProps) => {
   const [timeLeft, setTimeLeft] = useState(initialMinutes * 60); // in seconds
 
   useEffect(() => {
-    if (!isActive) return;
-
     const timer = setInterval(() => {
       setTimeLeft((prev) => {
         if (prev <= 1) {
@@ -30,7 +26,7 @@ const QuizTimerNext = ({
     }, 1000);
 
     return () => clearInterval(timer);
-  }, [isActive, onTimeUp]);
+  }, [onTimeUp]);
 
   const minutes = Math.floor(timeLeft / 60);
   const seconds = timeLeft % 60;

@@ -11,7 +11,7 @@ import QuizResult from '../../components/reactQuiz/QuizResult';
 import { useCallback, useMemo } from 'react';
 
 const ReactQuiz = () => {
-  const { data, status, currIndex, useAnswer, score, dispatch } =
+  const { data, status, currIndex, useAnswer, timeLeft, score, dispatch } =
     useReactQuiz();
 
   const quizLength = data.length;
@@ -81,12 +81,12 @@ const ReactQuiz = () => {
 
           <QuizQuestion
             onTimeUp={handleTimeUp}
-            isActive={status === 'active'}
             currQuestion={currentQuestion}
             dispatchCorrect={dispatchCorrect}
             dispatchNext={dispatchNext}
             dispatchUserAnswer={dispatchUserAnswer}
             userAnswer={useAnswer}
+            timeLeft={timeLeft}
           />
         </MainQuiz>
       )}

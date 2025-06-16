@@ -19,7 +19,9 @@ const Input = ({ answer, onSubmit, disabled }: InputProps) => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     const correct = userInput.trim().toLowerCase() === answer.toLowerCase();
-    onSubmit(userInput);
+    if (correct) {
+      onSubmit(answer);
+    }
     setIsCorrect(correct);
   };
 

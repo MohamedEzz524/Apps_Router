@@ -5,12 +5,12 @@ import QuizTimerNext from './QuizTimerNext';
 
 interface QuizQuestionProps {
   currQuestion: QuizQuestionType;
-  dispatchCorrect: () => void;
+  userAnswer: string;
   dispatchNext: () => void;
   dispatchUserAnswer: (param: string) => void;
-  userAnswer: string;
+  dispatchCorrect: () => void;
+  timeLeft: number;
   onTimeUp: () => void;
-  isActive: boolean;
 }
 
 const QuizQuestion = ({
@@ -20,7 +20,7 @@ const QuizQuestion = ({
   dispatchUserAnswer,
   userAnswer,
   onTimeUp,
-  isActive,
+  timeLeft,
 }: QuizQuestionProps) => {
   const { question, answer, options } = currQuestion;
   const chooseQuestion = !!options;
@@ -51,7 +51,7 @@ const QuizQuestion = ({
         )}
       </div>
 
-      <QuizTimerNext onTimeUp={onTimeUp} isActive={isActive}>
+      <QuizTimerNext onTimeUp={onTimeUp} initialMinutes={timeLeft}>
         {disabled && (
           <button
             type="button"

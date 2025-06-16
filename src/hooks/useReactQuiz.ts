@@ -17,7 +17,6 @@ type StateType = {
   score: number;
   useAnswer: string;
   timeLeft: number;
-  isTimerActive: boolean;
 };
 
 export type ActionType =
@@ -41,31 +40,35 @@ const initialState: StateType = {
   index: 0,
   score: 0,
   useAnswer: '',
-  timeLeft: 600, // 10 minutes in seconds
-  isTimerActive: false,
+  timeLeft: 1, // 1 minutes for each question
 };
 
 const reducer = (state: StateType, action: ActionType): StateType => {
+  const numberOfQuestions = state.data.length;
+
   switch (action.type) {
     case 'FETCH_START':
       return { ...state, status: 'loading' };
     case 'FETCH_SUCCESS':
-      return { ...state, data: action.payload, status: 'ready' };
+      return {
+        ...state,
+        data: action.payload,
+        status: 'ready',
+        timeLeft: numberOfQuestions * 1,
+      };
     case 'FETCH_ERROR':
       return { ...state, status: 'error' };
     case 'QUIZ_START':
-      return { ...state, status: 'active', isTimerActive: true };
+      return { ...state, status: 'active' };
     case 'QUIZ_FINISHED':
-      return { ...state, status: 'finished', isTimerActive: false };
+      return { ...state, status: 'finished' };
     case 'USER_ANSWER':
       return { ...state, useAnswer: action.payload };
     case 'NEXT_QUESTION':
       return { ...state, index: state.index + 1, useAnswer: '' };
     case 'CORRECT_ANSWER':
-      return {
-        ...state,
-        score: state.score + action.payload,
-      };
+      return { ...state, score: state.score + action.payload };
+
     case 'QUIZ_RESET':
       return {
         ...state,
@@ -73,8 +76,7 @@ const reducer = (state: StateType, action: ActionType): StateType => {
         status: 'active',
         index: 0,
         useAnswer: '',
-        isTimerActive: true,
-        timeLeft: 600,
+        timeLeft: numberOfQuestions * 1,
       };
 
     default:
@@ -115,6 +117,7 @@ const useReactQuiz = () => {
     currIndex: state.index,
     score: state.score,
     useAnswer: state.useAnswer,
+    timeLeft: state.timeLeft,
     dispatch,
   };
 };
