@@ -4,43 +4,46 @@
 
 @layer base {
   :root {
-    --bg-primary: #0d1117;
-    --bg-secondary: #161b22;
-    --sidebar: rgba(22, 27, 34, 0.95);
-    --text-primary: #f0f6fc;
-    --text-secondary: #8b949e;
+    --bg-primary: #0f1621;
+    --bg-secondary: #1a2332;
+    --sidebar: rgba(26, 35, 50, 0.95);
+    --text-primary: #e2e8f0;
+    --text-secondary: #94a3b8;
 
-    --accent-primary: #58a6ff;
-    --accent-secondary: #d2a8ff;
-    --accent-hover: #c5e1ff;
-    --border: rgba(88, 166, 255, 0.2);
+    --accent-primary: #6dd3ce;
+    --accent-secondary: #c792ea;
+    --accent-hover: #a5b4fc;
+    --border: rgba(109, 211, 206, 0.15);
 
-    --shadow: 0 0 20px rgba(88, 166, 255, 0.3);
-    --glow: 0 0 15px rgba(210, 168, 255, 0.4);
-    --neon-pulse: 0 0 10px rgba(88, 166, 255, 0.5);
+    /* Shadows/Glow: Align with accents */
+    --shadow: 0 0 20px rgba(109, 211, 206, 0.25);
+    --glow: 0 0 15px rgba(199, 146, 234, 0.3);
+    --neon-pulse: 0 0 12px rgba(109, 211, 206, 0.6);
 
-    --button-bg: linear-gradient(45deg, #58a6ff, #d2a8ff);
-    --button-hover: linear-gradient(45deg, #d2a8ff, #c5e1ff);
+    /* Buttons: Gradient using theme accents */
+    --button-bg: linear-gradient(45deg, #6dd3ce, #c792ea);
+    --button-hover: linear-gradient(45deg, #c792ea, #a5b4fc);
   }
-
   .light {
-    --bg-primary: #f4faff;
-    --bg-secondary: #e6f0fa;
-    --sidebar: rgba(244, 250, 255, 0.95);
-    --text-primary: #1b1f23;
-    --text-secondary: #4f5660;
+    --bg-primary: #f8f5f2;
+    --bg-secondary: #e8e1d9;
+    --sidebar: rgba(248, 245, 242, 0.95);
+    --text-primary: #333333;
+    --text-secondary: #5f6c7d;
 
-    --accent-primary: #5b8def;
-    --accent-secondary: #a97cff;
-    --accent-hover: #d0dfff;
-    --border: rgba(91, 141, 239, 0.1);
+    --accent-primary: #a78a7f;
+    --accent-secondary: #d4b483;
+    --accent-hover: #c7a27c;
+    --border: rgba(167, 138, 127, 0.15);
 
-    --shadow: 0 0 15px rgba(91, 141, 239, 0.2);
-    --glow: 0 0 10px rgba(169, 124, 255, 0.3);
-    --neon-pulse: 0 0 10px rgba(91, 141, 239, 0.5);
+    /* Shadows: Subtle and warm */
+    --shadow: 0 0 10px rgba(167, 138, 127, 0.1);
+    --glow: 0 0 8px rgba(212, 180, 131, 0.2);
+    --neon-pulse: 0 0 5px rgba(167, 138, 127, 0.3);
 
-    --button-bg: linear-gradient(45deg, #5b8def, #a97cff);
-    --button-hover: linear-gradient(45deg, #a97cff, #d0dfff);
+    /* Buttons: Natural gradient */
+    --button-bg: linear-gradient(45deg, #a78a7f, #d4b483);
+    --button-hover: linear-gradient(45deg, #d4b483, #c7a27c);
   }
 }
 
@@ -166,4 +169,19 @@
   min-height: 100dvh;
   display: flex;
   flex-direction: column;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 0.5;
+  }
+  50% {
+    transform: translateY(-100px) rotate(180deg);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(0) rotate(360deg);
+    opacity: 0.5;
+  }
 }

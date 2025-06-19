@@ -22,6 +22,7 @@ const Input = ({ answer, onSubmit, disabled }: InputProps) => {
     if (correct) {
       onSubmit(answer);
     }
+    onSubmit(userInput);
     setIsCorrect(correct);
   };
 

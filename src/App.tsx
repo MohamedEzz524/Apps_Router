@@ -1,6 +1,7 @@
 import { Route, Routes } from 'react-router-dom';
 import routes from './apps/Exportation';
 import Global from './global/Global';
+import PageNotFound from './apps/pageNotFound/PageNotFound';
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
         {routes.map(({ path, element }) => (
           <Route key={path} path={path} element={element} />
         ))}
+        <Route path="*" element={<PageNotFound />} />
       </Routes>
     </main>
   );

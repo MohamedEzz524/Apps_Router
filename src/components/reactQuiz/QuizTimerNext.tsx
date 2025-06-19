@@ -13,6 +13,9 @@ const QuizTimerNext = ({
 }: QuizTimerNextProps) => {
   const [timeLeft, setTimeLeft] = useState(initialMinutes * 60); // in seconds
 
+  const minutes = Math.floor(timeLeft / 60);
+  const seconds = timeLeft % 60;
+
   useEffect(() => {
     const timer = setInterval(() => {
       setTimeLeft((prev) => {
@@ -27,9 +30,6 @@ const QuizTimerNext = ({
 
     return () => clearInterval(timer);
   }, [onTimeUp]);
-
-  const minutes = Math.floor(timeLeft / 60);
-  const seconds = timeLeft % 60;
 
   return (
     <div className="flex items-center justify-between">
